@@ -54,8 +54,7 @@ Future<void> main() async {
   //
   // The ThemeServiceHive constructor requires a box name, the others do not.
   // The box name is just a file name for the file that stores the settings.
-  final ThemeService themeService =
-      ThemeServiceHive('flex_color_scheme_v5_box_5');
+  final ThemeService themeService = ThemeServiceHive('flex_color_scheme_v5_box_5');
   // Initialize the theme service.
   await themeService.init();
   // Create a ThemeController that uses the ThemeService.
@@ -68,8 +67,7 @@ Future<void> main() async {
   GoogleFonts.config.allowRuntimeFetching = false;
   // Add font license info for used fonts from Google fonts.
   LicenseRegistry.addLicense(() async* {
-    final String license =
-        await rootBundle.loadString('assets/google_fonts/OFL.txt');
+    final String license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(<String>['google_fonts'], license);
   });
 
@@ -98,12 +96,8 @@ class PlaygroundApp extends StatelessWidget {
           // ThemeData or standard SDK ThemeData. It also
           // controls all the configuration parameters used to define the
           // FlexColorScheme object that produces the ThemeData object.
-          theme: controller.useFlexColorScheme
-              ? flexThemeLight(controller)
-              : themeDataLight(controller),
-          darkTheme: controller.useFlexColorScheme
-              ? flexThemeDark(controller)
-              : themeDataDark(controller),
+          theme: controller.useFlexColorScheme ? flexThemeLight(controller) : themeDataLight(controller),
+          darkTheme: controller.useFlexColorScheme ? flexThemeDark(controller) : themeDataDark(controller),
           // Use the dark/light theme based on controller setting.
           themeMode: controller.themeMode,
           home: GestureDetector(

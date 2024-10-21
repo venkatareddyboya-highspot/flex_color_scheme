@@ -252,8 +252,7 @@ class ShowcaseMaterial extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('PrimaryTextTheme',
-                    style: theme.primaryTextTheme.titleMedium),
+                Text('PrimaryTextTheme', style: theme.primaryTextTheme.titleMedium),
                 const PrimaryTextThemeShowcase(),
               ],
             ),
@@ -482,8 +481,7 @@ class SegmentedButtonShowcase extends StatefulWidget {
   final bool? showOutlinedButton;
 
   @override
-  State<SegmentedButtonShowcase> createState() =>
-      _SegmentedButtonShowcaseState();
+  State<SegmentedButtonShowcase> createState() => _SegmentedButtonShowcaseState();
 }
 
 enum Calendar { day, week, month, year }
@@ -704,12 +702,9 @@ class _SwitchShowcaseState extends State<SwitchShowcase> {
             },
           ),
           Switch(
-            thumbIcon: MaterialStateProperty.resolveWith<Icon?>(
-                (Set<MaterialState> states) {
+            thumbIcon: MaterialStateProperty.resolveWith<Icon?>((Set<MaterialState> states) {
               if (states.contains(MaterialState.selected)) {
-                return Icon(Icons.check,
-                    color:
-                        isLight ? colorScheme.primary : colorScheme.onPrimary);
+                return Icon(Icons.check, color: isLight ? colorScheme.primary : colorScheme.onPrimary);
               }
               // All other states will use the default thumbIcon.
               return Icon(Icons.close, color: colorScheme.onPrimary);
@@ -950,8 +945,7 @@ class _SliderShowcaseState extends State<SliderShowcase> {
           ),
           ListTile(
             dense: true,
-            title:
-                Text('Slider stepped disabled (${value.toStringAsFixed(0)})'),
+            title: Text('Slider stepped disabled (${value.toStringAsFixed(0)})'),
             subtitle: Slider(
               max: 30,
               divisions: 31,
@@ -962,8 +956,7 @@ class _SliderShowcaseState extends State<SliderShowcase> {
           ),
           ListTile(
             dense: true,
-            title: Text(
-                'Slider continuous disabled (${value.toStringAsFixed(2)})'),
+            title: Text('Slider continuous disabled (${value.toStringAsFixed(2)})'),
             subtitle: Slider(
               max: 30,
               label: value.toStringAsFixed(0),
@@ -1086,40 +1079,38 @@ class PopupMenuButtonsShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          if (explain)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-              child: Text(
-                'PopupMenuButton',
-                style: denseHeader,
-              ),
-            ),
-          if (explain)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-              child: Text(
-                'The PopupMenuButton is a Material-2 design commonly used in '
-                'Material apps. In M3 it has received a slightly updated style '
-                'with elevation tint.',
-                style: denseBody,
-              ),
-            ),
-          const Row(
-            children: <Widget>[
-              PopupMenuButtonShowcase(),
-              SizedBox(width: 16),
-              CheckedPopupMenuButtonShowcase(),
-              SizedBox(width: 16),
-              PopupMenuButtonTilesShowcase(),
-            ],
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+      if (explain)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+          child: Text(
+            'PopupMenuButton',
+            style: denseHeader,
           ),
-        ]);
+        ),
+      if (explain)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+          child: Text(
+            'The PopupMenuButton is a Material-2 design commonly used in '
+            'Material apps. In M3 it has received a slightly updated style '
+            'with elevation tint.',
+            style: denseBody,
+          ),
+        ),
+      const Row(
+        children: <Widget>[
+          PopupMenuButtonShowcase(),
+          SizedBox(width: 16),
+          CheckedPopupMenuButtonShowcase(),
+          SizedBox(width: 16),
+          PopupMenuButtonTilesShowcase(),
+        ],
+      ),
+    ]);
   }
 }
 
@@ -1178,24 +1169,11 @@ class PopupMenuButtonTilesShowcase extends StatelessWidget {
         onSelected: (_) {},
         position: PopupMenuPosition.under,
         itemBuilder: (BuildContext context) => const <PopupMenuItem<int>>[
+          PopupMenuItem<int>(value: 1, child: ListTile(leading: Icon(Icons.alarm), title: Text('Alarm'))),
+          PopupMenuItem<int>(value: 2, child: ListTile(leading: Icon(Icons.cabin), title: Text('Wood cabin'))),
           PopupMenuItem<int>(
-              value: 1,
-              child:
-                  ListTile(leading: Icon(Icons.alarm), title: Text('Alarm'))),
-          PopupMenuItem<int>(
-              value: 2,
-              child: ListTile(
-                  leading: Icon(Icons.cabin), title: Text('Wood cabin'))),
-          PopupMenuItem<int>(
-              value: 3,
-              child: ListTile(
-                  leading: Icon(Icons.camera_outdoor_rounded),
-                  title: Text('Surveillance'))),
-          PopupMenuItem<int>(
-              value: 4,
-              child: ListTile(
-                  leading: Icon(Icons.water_damage),
-                  title: Text('Water damage'))),
+              value: 3, child: ListTile(leading: Icon(Icons.camera_outdoor_rounded), title: Text('Surveillance'))),
+          PopupMenuItem<int>(value: 4, child: ListTile(leading: Icon(Icons.water_damage), title: Text('Water damage'))),
         ],
         icon: const Icon(Icons.more_horiz),
       ),
@@ -1219,8 +1197,8 @@ class _DropDownButtonShowcaseState extends State<DropDownButtonShowcase> {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return RepaintBoundary(
       child: Column(
@@ -1280,12 +1258,10 @@ class DropdownButtonFormFieldShowcase extends StatefulWidget {
   final bool explain;
 
   @override
-  State<DropdownButtonFormFieldShowcase> createState() =>
-      _DropdownButtonFormFieldShowcaseState();
+  State<DropdownButtonFormFieldShowcase> createState() => _DropdownButtonFormFieldShowcaseState();
 }
 
-class _DropdownButtonFormFieldShowcaseState
-    extends State<DropdownButtonFormFieldShowcase> {
+class _DropdownButtonFormFieldShowcaseState extends State<DropdownButtonFormFieldShowcase> {
   String selectedItem = '1 DropdownButtonFormField';
   @override
   Widget build(BuildContext context) {
@@ -1293,8 +1269,8 @@ class _DropdownButtonFormFieldShowcaseState
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return RepaintBoundary(
       child: Column(
@@ -1363,8 +1339,8 @@ class _DropDownMenuShowcaseState extends State<DropDownMenuShowcase> {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return RepaintBoundary(
       child: Column(
@@ -1398,8 +1374,7 @@ class _DropDownMenuShowcaseState extends State<DropDownMenuShowcase> {
             dropdownMenuEntries: const <DropdownMenuEntry<IconData>>[
               DropdownMenuEntry<IconData>(
                 style: ButtonStyle(
-                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
-                      EdgeInsets.symmetric(horizontal: 12)),
+                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.symmetric(horizontal: 12)),
                 ),
                 label: 'Alarm settings',
                 leadingIcon: Icon(Icons.alarm),
@@ -1407,8 +1382,7 @@ class _DropDownMenuShowcaseState extends State<DropDownMenuShowcase> {
               ),
               DropdownMenuEntry<IconData>(
                 style: ButtonStyle(
-                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
-                      EdgeInsets.symmetric(horizontal: 12)),
+                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.symmetric(horizontal: 12)),
                 ),
                 label: 'Disabled settings',
                 leadingIcon: Icon(Icons.settings),
@@ -1417,8 +1391,7 @@ class _DropDownMenuShowcaseState extends State<DropDownMenuShowcase> {
               ),
               DropdownMenuEntry<IconData>(
                 style: ButtonStyle(
-                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
-                      EdgeInsets.symmetric(horizontal: 12)),
+                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.symmetric(horizontal: 12)),
                 ),
                 label: 'Cabin overview',
                 leadingIcon: Icon(Icons.cabin),
@@ -1426,8 +1399,7 @@ class _DropDownMenuShowcaseState extends State<DropDownMenuShowcase> {
               ),
               DropdownMenuEntry<IconData>(
                   style: ButtonStyle(
-                    padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
-                        EdgeInsets.symmetric(horizontal: 12)),
+                    padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.symmetric(horizontal: 12)),
                   ),
                   label: 'Surveillance view',
                   leadingIcon: Icon(Icons.camera_outdoor_rounded),
@@ -1435,8 +1407,7 @@ class _DropDownMenuShowcaseState extends State<DropDownMenuShowcase> {
                   value: Icons.camera_outdoor_rounded),
               DropdownMenuEntry<IconData>(
                 style: ButtonStyle(
-                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
-                      EdgeInsets.symmetric(horizontal: 12)),
+                  padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(EdgeInsets.symmetric(horizontal: 12)),
                 ),
                 label: 'Water alert',
                 leadingIcon: Icon(Icons.water_damage),
@@ -1598,8 +1569,7 @@ class IconButtonVariantsShowcase extends StatelessWidget {
         Column(
           // Standard IconButton
           children: <Widget>[
-            SizedBox(
-                width: 65, child: Text('Default', textAlign: TextAlign.center)),
+            SizedBox(width: 65, child: Text('Default', textAlign: TextAlign.center)),
             SizedBox(height: 4),
             _IconToggleButton(
               isEnabled: true,
@@ -1624,8 +1594,7 @@ class IconButtonVariantsShowcase extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            SizedBox(
-                width: 65, child: Text('Filled', textAlign: TextAlign.center)),
+            SizedBox(width: 65, child: Text('Filled', textAlign: TextAlign.center)),
             SizedBox(height: 4),
             // Filled IconButton
             _IconToggleButton(
@@ -1651,8 +1620,7 @@ class IconButtonVariantsShowcase extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            SizedBox(
-                width: 65, child: Text('Tonal', textAlign: TextAlign.center)),
+            SizedBox(width: 65, child: Text('Tonal', textAlign: TextAlign.center)),
             SizedBox(height: 4),
             // Filled Tonal IconButton
             _IconToggleButton(
@@ -1678,9 +1646,7 @@ class IconButtonVariantsShowcase extends StatelessWidget {
         ),
         Column(
           children: <Widget>[
-            SizedBox(
-                width: 65,
-                child: Text('Outlined', textAlign: TextAlign.center)),
+            SizedBox(width: 65, child: Text('Outlined', textAlign: TextAlign.center)),
             SizedBox(height: 4),
             // Outlined IconButton
             _IconToggleButton(
@@ -1796,8 +1762,7 @@ class ProgressIndicatorShowcase extends StatefulWidget {
   const ProgressIndicatorShowcase({super.key});
 
   @override
-  State<ProgressIndicatorShowcase> createState() =>
-      _ProgressIndicatorShowcaseState();
+  State<ProgressIndicatorShowcase> createState() => _ProgressIndicatorShowcaseState();
 }
 
 class _ProgressIndicatorShowcaseState extends State<ProgressIndicatorShowcase> {
@@ -1993,9 +1958,7 @@ class _TextFieldShowcaseState extends State<TextFieldShowcase> {
             decoration: InputDecoration(
               hintText: 'Hint: Write something...',
               labelText: 'Label: Underline border by default if not defined',
-              errorText: _errorState1
-                  ? "Any entry without an 'a' will trigger this error"
-                  : null,
+              errorText: _errorState1 ? "Any entry without an 'a' will trigger this error" : null,
             ),
           ),
           const SizedBox(height: 16),
@@ -2016,9 +1979,7 @@ class _TextFieldShowcaseState extends State<TextFieldShowcase> {
               hintText: 'Hint: Write something...',
               labelText: 'Label: Underline border by default if not defined, '
                   'filled set true by Widget',
-              errorText: _errorState2
-                  ? "Any entry without an 'a' will trigger this error"
-                  : null,
+              errorText: _errorState2 ? "Any entry without an 'a' will trigger this error" : null,
             ),
           ),
           const SizedBox(height: 16),
@@ -2040,9 +2001,7 @@ class _TextFieldShowcaseState extends State<TextFieldShowcase> {
               labelText: 'Label: Outline border set by Widget if not defined',
               prefixIcon: const Icon(Icons.search),
               suffixIcon: const Icon(Icons.info),
-              errorText: _errorState3
-                  ? "Any entry without an 'a' will trigger this error"
-                  : null,
+              errorText: _errorState3 ? "Any entry without an 'a' will trigger this error" : null,
             ),
           ),
           const SizedBox(height: 16),
@@ -2236,8 +2195,8 @@ class _SearchBarShowcaseState extends State<SearchBarShowcase> {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return Theme(
       data: Theme.of(context).copyWith(
@@ -2274,14 +2233,12 @@ class _SearchBarShowcaseState extends State<SearchBarShowcase> {
                   ),
                 ),
               ],
-              SearchAnchor(
-                  builder: (BuildContext context, SearchController controller) {
+              SearchAnchor(builder: (BuildContext context, SearchController controller) {
                 return SearchBar(
                   // elevation: const MaterialStatePropertyAll<double>(1),
                   controller: controller,
                   hintText: 'Search using SearchBar',
-                  padding: const MaterialStatePropertyAll<EdgeInsets>(
-                      EdgeInsets.symmetric(horizontal: 16.0)),
+                  padding: const MaterialStatePropertyAll<EdgeInsets>(EdgeInsets.symmetric(horizontal: 16.0)),
                   onTap: () {
                     controller.openView();
                   },
@@ -2305,8 +2262,7 @@ class _SearchBarShowcaseState extends State<SearchBarShowcase> {
                     )
                   ],
                 );
-              }, suggestionsBuilder:
-                      (BuildContext context, SearchController controller) {
+              }, suggestionsBuilder: (BuildContext context, SearchController controller) {
                 return List<ListTile>.generate(7, (int index) {
                   final String item = 'item $index';
                   return ListTile(
@@ -2347,8 +2303,8 @@ class TabBarForAppBarShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return RepaintBoundary(
       child: DefaultTabController(
@@ -2434,8 +2390,8 @@ class TabBarForBackgroundShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
     return RepaintBoundary(
       child: DefaultTabController(
         length: 3,
@@ -2502,8 +2458,8 @@ class BottomAppBarShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
     return RepaintBoundary(
       child: MediaQuery.removePadding(
         context: context,
@@ -2514,8 +2470,7 @@ class BottomAppBarShowcase extends StatelessWidget {
           children: <Widget>[
             if (explain) ...<Widget>[
               Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-                  child: Text('BottomAppBar', style: denseHeader)),
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 0), child: Text('BottomAppBar', style: denseHeader)),
               Padding(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
                   child: Text(
@@ -2563,12 +2518,10 @@ class BottomNavigationBarShowcase extends StatefulWidget {
   final bool explain;
 
   @override
-  State<BottomNavigationBarShowcase> createState() =>
-      _BottomNavigationBarShowcaseState();
+  State<BottomNavigationBarShowcase> createState() => _BottomNavigationBarShowcaseState();
 }
 
-class _BottomNavigationBarShowcaseState
-    extends State<BottomNavigationBarShowcase> {
+class _BottomNavigationBarShowcaseState extends State<BottomNavigationBarShowcase> {
   int buttonIndex = 0;
 
   @override
@@ -2577,8 +2530,8 @@ class _BottomNavigationBarShowcaseState
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
     return RepaintBoundary(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -2686,8 +2639,8 @@ class _NavigationBarShowcaseState extends State<NavigationBarShowcase> {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
     return RepaintBoundary(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -2805,8 +2758,8 @@ class _NavigationRailShowcaseState extends State<NavigationRailShowcase> {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return RepaintBoundary(
       child: Column(
@@ -2850,8 +2803,7 @@ class _NavigationRailShowcaseState extends State<NavigationRailShowcase> {
                       child: NavigationRail(
                         extended: isExtended,
                         minExtendedWidth: 150,
-                        labelType:
-                            isExtended ? NavigationRailLabelType.none : null,
+                        labelType: isExtended ? NavigationRailLabelType.none : null,
                         selectedIndex: buttonIndex,
                         onDestinationSelected: (int value) {
                           setState(() {
@@ -2886,10 +2838,9 @@ class _NavigationRailShowcaseState extends State<NavigationRailShowcase> {
                         children: <Widget>[
                           SwitchListTile(
                             title: const Text('Expand and collapse'),
-                            subtitle:
-                                const Text('ON to expand  OFF to collapse\n'
-                                    'Only used for local control of Rail '
-                                    'presentation.'),
+                            subtitle: const Text('ON to expand  OFF to collapse\n'
+                                'Only used for local control of Rail '
+                                'presentation.'),
                             value: isExtended,
                             onChanged: (bool value) {
                               setState(() {
@@ -2897,10 +2848,7 @@ class _NavigationRailShowcaseState extends State<NavigationRailShowcase> {
                               });
                             },
                           ),
-                          if (widget.child != null)
-                            RepaintBoundary(child: widget.child)
-                          else
-                            const SizedBox.shrink(),
+                          if (widget.child != null) RepaintBoundary(child: widget.child) else const SizedBox.shrink(),
                         ],
                       ),
                     ),
@@ -2930,12 +2878,11 @@ class MenuBarShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
     return Shortcuts(
       shortcuts: const <ShortcutActivator, Intent>{
-        SingleActivator(LogicalKeyboardKey.keyT, control: true):
-            VoidCallbackIntent(debugDumpApp),
+        SingleActivator(LogicalKeyboardKey.keyT, control: true): VoidCallbackIntent(debugDumpApp),
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -3090,8 +3037,8 @@ class MenuAnchorShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -3132,10 +3079,8 @@ class MenuAnchorShowcase extends StatelessWidget {
 /// they could be used for simple menu systems.
 enum MenuEntry {
   about('About'),
-  showMessage(
-      'Show Message', SingleActivator(LogicalKeyboardKey.keyS, control: true)),
-  hideMessage(
-      'Hide Message', SingleActivator(LogicalKeyboardKey.keyH, control: true)),
+  showMessage('Show Message', SingleActivator(LogicalKeyboardKey.keyS, control: true)),
+  hideMessage('Hide Message', SingleActivator(LogicalKeyboardKey.keyH, control: true)),
   colorMenu('Color Menu'),
   colorRed('Red', SingleActivator(LogicalKeyboardKey.keyR, control: true)),
   colorGreen('Green', SingleActivator(LogicalKeyboardKey.keyG, control: true)),
@@ -3179,16 +3124,13 @@ class _MenuAnchorContextMenuState extends State<MenuAnchorContextMenu> {
     // Collect the shortcuts from the different menu selections so that they can
     // be registered to apply to the entire app. Menus don't register their
     // shortcuts, they only display the shortcut hint text.
-    final Map<ShortcutActivator, Intent> shortcuts =
-        <ShortcutActivator, Intent>{
+    final Map<ShortcutActivator, Intent> shortcuts = <ShortcutActivator, Intent>{
       for (final MenuEntry item in MenuEntry.values)
-        if (item.shortcut != null)
-          item.shortcut!: VoidCallbackIntent(() => _activate(item)),
+        if (item.shortcut != null) item.shortcut!: VoidCallbackIntent(() => _activate(item)),
     };
     // Register the shortcuts with the ShortcutRegistry so that they are
     // available to the entire application.
-    final Map<ShortcutActivator, Intent>? entries =
-        ShortcutRegistry.maybeOf(context)?.shortcuts;
+    final Map<ShortcutActivator, Intent>? entries = ShortcutRegistry.maybeOf(context)?.shortcuts;
     // TODO(rydmike): Potential issue with ShortcutRegistry? Investigate.
     // Workaround to avoid issue of entries being added multiple times, the
     // dispose of them does not seem to work all the time. This widget is in
@@ -3219,6 +3161,7 @@ class _MenuAnchorContextMenuState extends State<MenuAnchorContextMenu> {
       onTapDown: _handleTapDown,
       child: MenuAnchor(
         controller: _menuController,
+        // ignore: deprecated_member_use
         anchorTapClosesMenu: true,
         menuChildren: <Widget>[
           MenuItemButton(
@@ -3287,9 +3230,7 @@ class _MenuAnchorContextMenuState extends State<MenuAnchorContextMenu> {
                   ),
                 ),
                 Text(
-                  _lastSelection != null
-                      ? 'Last Selected: ${_lastSelection!.label}'
-                      : '',
+                  _lastSelection != null ? 'Last Selected: ${_lastSelection!.label}' : '',
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -3348,8 +3289,8 @@ class DrawerShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -3397,8 +3338,7 @@ class NavigationDrawerShowcase extends StatefulWidget {
   final bool explain;
 
   @override
-  State<NavigationDrawerShowcase> createState() =>
-      _NavigationDrawerShowcaseState();
+  State<NavigationDrawerShowcase> createState() => _NavigationDrawerShowcaseState();
 }
 
 class _NavigationDrawerShowcaseState extends State<NavigationDrawerShowcase> {
@@ -3410,8 +3350,8 @@ class _NavigationDrawerShowcaseState extends State<NavigationDrawerShowcase> {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return RepaintBoundary(
       child: Column(
@@ -3671,9 +3611,7 @@ class _ExpansionTileShowcaseState extends State<ExpansionTileShowcase> {
             title: const Text('ExpansionTile 2'),
             subtitle: const Text('Custom expansion arrow icon'),
             trailing: Icon(
-              _customTileExpanded
-                  ? Icons.arrow_drop_down_circle
-                  : Icons.arrow_drop_down,
+              _customTileExpanded ? Icons.arrow_drop_down_circle : Icons.arrow_drop_down,
             ),
             children: const <Widget>[
               ListTile(title: Text('This is tile number 2')),
@@ -3700,14 +3638,11 @@ class ExpansionPanelListShowcase extends StatefulWidget {
   const ExpansionPanelListShowcase({super.key});
 
   @override
-  State<ExpansionPanelListShowcase> createState() =>
-      _ExpansionPanelListShowcaseState();
+  State<ExpansionPanelListShowcase> createState() => _ExpansionPanelListShowcaseState();
 }
 
-class _ExpansionPanelListShowcaseState
-    extends State<ExpansionPanelListShowcase> {
-  final List<ExpansionPanelShowcaseItems> _items =
-      ExpansionPanelShowcaseItems.generateItems(6);
+class _ExpansionPanelListShowcaseState extends State<ExpansionPanelListShowcase> {
+  final List<ExpansionPanelShowcaseItems> _items = ExpansionPanelShowcaseItems.generateItems(6);
 
   @override
   Widget build(BuildContext context) {
@@ -3718,8 +3653,7 @@ class _ExpansionPanelListShowcaseState
             _items[index].isExpanded = !isExpanded;
           });
         },
-        children:
-            _items.map<ExpansionPanel>((ExpansionPanelShowcaseItems item) {
+        children: _items.map<ExpansionPanel>((ExpansionPanelShowcaseItems item) {
           return ExpansionPanel(
             headerBuilder: (BuildContext context, bool isExpanded) {
               return ListTile(
@@ -3730,17 +3664,14 @@ class _ExpansionPanelListShowcaseState
               title: Text(item.expandedValue),
               subtitle: item.id > 2
                   ? const Text('To delete this panel, tap the trash can icon')
-                  : const Text(
-                      'This panel is fixed here and cannot be removed. Items '
+                  : const Text('This panel is fixed here and cannot be removed. Items '
                       'numbered 3 and higher can be removed.'),
               trailing: item.id > 2
                   ? IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
                         setState(() {
-                          _items.removeWhere(
-                              (ExpansionPanelShowcaseItems currentItem) =>
-                                  item == currentItem);
+                          _items.removeWhere((ExpansionPanelShowcaseItems currentItem) => item == currentItem);
                         });
                       },
                     )
@@ -3769,8 +3700,7 @@ class ExpansionPanelShowcaseItems {
   bool isExpanded;
 
   static List<ExpansionPanelShowcaseItems> generateItems(int numberOfItems) {
-    return List<ExpansionPanelShowcaseItems>.generate(numberOfItems,
-        (int index) {
+    return List<ExpansionPanelShowcaseItems>.generate(numberOfItems, (int index) {
       return ExpansionPanelShowcaseItems(
         id: index,
         headerValue: 'ExpansionPanelList tile $index',
@@ -3785,9 +3715,7 @@ class AlertDialogShowcase extends StatelessWidget {
 
   Future<void> _openDialog(BuildContext context) async {
     await showDialog<void>(
-        context: context,
-        useRootNavigator: false,
-        builder: (BuildContext context) => const _AlertDialogExample());
+        context: context, useRootNavigator: false, builder: (BuildContext context) => const _AlertDialogExample());
   }
 
   @override
@@ -3821,10 +3749,8 @@ class _AlertDialogExample extends StatelessWidget {
       content: const Text('Let us help determine location. This means '
           'sending anonymous location data to us'),
       actions: <Widget>[
-        TextButton(
-            onPressed: () => Navigator.of(context).pop(), child: Text(cancel)),
-        TextButton(
-            onPressed: () => Navigator.of(context).pop(), child: Text(allow)),
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(cancel)),
+        TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(allow)),
       ],
     );
   }
@@ -4011,8 +3937,7 @@ class _SnackBarShowcaseState extends State<SnackBarShowcase> {
   int fixedCount = 0;
   int pinnedCount = 0;
 
-  Future<void> _showDemoSnackBar(
-      BuildContext context, SnackBarBehavior style, String message) async {
+  Future<void> _showDemoSnackBar(BuildContext context, SnackBarBehavior style, String message) async {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
@@ -4037,34 +3962,20 @@ class _SnackBarShowcaseState extends State<SnackBarShowcase> {
     final Color defaultBackgroundColor = isLight
         ? useMaterial3
             ? colorScheme.inverseSurface
-            : Color.alphaBlend(
-                colorScheme.onSurface.withOpacity(0.80), colorScheme.surface)
+            : Color.alphaBlend(colorScheme.onSurface.withOpacity(0.80), colorScheme.surface)
         : colorScheme.onSurface;
-    final Color snackBackground =
-        theme.snackBarTheme.backgroundColor ?? defaultBackgroundColor;
+    final Color snackBackground = theme.snackBarTheme.backgroundColor ?? defaultBackgroundColor;
 
     final Color snackForeground =
-        ThemeData.estimateBrightnessForColor(snackBackground) ==
-                Brightness.light
-            ? Colors.black
-            : Colors.white;
+        ThemeData.estimateBrightnessForColor(snackBackground) == Brightness.light ? Colors.black : Colors.white;
 
-    final Color defaultActionColor =
-        useMaterial3 ? colorScheme.inversePrimary : colorScheme.secondary;
-    final Color snackActionColor =
-        theme.snackBarTheme.actionTextColor ?? defaultActionColor;
+    final Color defaultActionColor = useMaterial3 ? colorScheme.inversePrimary : colorScheme.secondary;
+    final Color snackActionColor = theme.snackBarTheme.actionTextColor ?? defaultActionColor;
 
     final TextStyle snackStyle = theme.snackBarTheme.contentTextStyle ??
-        ThemeData(brightness: Brightness.light)
-            .textTheme
-            .titleMedium!
-            .copyWith(color: snackForeground);
-    final TextStyle snackActionStyle = theme.snackBarTheme.contentTextStyle
-            ?.copyWith(color: snackActionColor) ??
-        ThemeData(brightness: Brightness.light)
-            .textTheme
-            .titleMedium!
-            .copyWith(color: snackActionColor);
+        ThemeData(brightness: Brightness.light).textTheme.titleMedium!.copyWith(color: snackForeground);
+    final TextStyle snackActionStyle = theme.snackBarTheme.contentTextStyle?.copyWith(color: snackActionColor) ??
+        ThemeData(brightness: Brightness.light).textTheme.titleMedium!.copyWith(color: snackActionColor);
     final double snackElevation = theme.snackBarTheme.elevation ?? 6;
 
     final ShapeBorder? shape = theme.snackBarTheme.shape;
@@ -4112,8 +4023,7 @@ class _SnackBarShowcaseState extends State<SnackBarShowcase> {
               ),
               onPressed: () {
                 pinnedCount++;
-                unawaited(_showDemoSnackBar(context, SnackBarBehavior.floating,
-                    'A floating SnackBar ($pinnedCount)'));
+                unawaited(_showDemoSnackBar(context, SnackBarBehavior.floating, 'A floating SnackBar ($pinnedCount)'));
               },
             ),
           ),
@@ -4149,8 +4059,7 @@ class _SnackBarShowcaseState extends State<SnackBarShowcase> {
               ),
               onPressed: () {
                 fixedCount++;
-                unawaited(_showDemoSnackBar(context, SnackBarBehavior.fixed,
-                    'A fixed SnackBar ($fixedCount)'));
+                unawaited(_showDemoSnackBar(context, SnackBarBehavior.fixed, 'A fixed SnackBar ($fixedCount)'));
               },
             ),
           ),
@@ -4172,8 +4081,7 @@ class MaterialBannerShowcase extends StatefulWidget {
 class _MaterialBannerShowcaseState extends State<MaterialBannerShowcase> {
   int showCount = 0;
 
-  Future<void> _showDemoMaterialBanner(
-      BuildContext context, bool twoButtons, String message) async {
+  Future<void> _showDemoMaterialBanner(BuildContext context, bool twoButtons, String message) async {
     ScaffoldMessenger.of(context).showMaterialBanner(
       MaterialBanner(
         // elevation: 3,
@@ -4234,8 +4142,7 @@ class _MaterialBannerShowcaseState extends State<MaterialBannerShowcase> {
                     ),
                     onPressed: () {
                       showCount++;
-                      unawaited(_showDemoMaterialBanner(
-                          context, false, 'A MaterialBanner ($showCount)'));
+                      unawaited(_showDemoMaterialBanner(context, false, 'A MaterialBanner ($showCount)'));
                     },
                   ),
                   TextButton(
@@ -4245,8 +4152,8 @@ class _MaterialBannerShowcaseState extends State<MaterialBannerShowcase> {
                     ),
                     onPressed: () {
                       showCount++;
-                      unawaited(_showDemoMaterialBanner(context, true,
-                          'A MaterialBanner with two actions ($showCount)'));
+                      unawaited(
+                          _showDemoMaterialBanner(context, true, 'A MaterialBanner with two actions ($showCount)'));
                     },
                   ),
                 ],
@@ -4269,8 +4176,8 @@ class MaterialShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
 
     return RepaintBoundary(
       child: Column(
@@ -4600,8 +4507,8 @@ class CardShowcase extends StatelessWidget {
     final TextStyle denseHeader = theme.textTheme.titleMedium!.copyWith(
       fontSize: 13,
     );
-    final TextStyle denseBody = theme.textTheme.bodyMedium!
-        .copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
+    final TextStyle denseBody =
+        theme.textTheme.bodyMedium!.copyWith(fontSize: 12, color: theme.textTheme.bodySmall!.color);
     return RepaintBoundary(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -4845,8 +4752,7 @@ class TextThemeColumnShowcase extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Font: ${textTheme.bodyMedium!.fontFamily}',
-            style: textTheme.titleSmall),
+        Text('Font: ${textTheme.bodyMedium!.fontFamily}', style: textTheme.titleSmall),
         _ShowTextStyle(
           'Display Large '
           '(${textTheme.displayLarge!.fontSize!.toStringAsFixed(0)})',
@@ -4980,12 +4886,8 @@ class _ShowTextStyle extends StatelessWidget {
     final String size = style.fontSize!.toStringAsFixed(1);
     final String fontWeight = style.fontWeight!.toString();
     final String color = style.color!.toString();
-    final String spacing = style.letterSpacing != null
-        ? style.letterSpacing!.toStringAsFixed(2)
-        : '';
-    final String height = style.height != null
-        ? ' height: ${style.height!.toStringAsFixed(2)}'
-        : '';
+    final String spacing = style.letterSpacing != null ? style.letterSpacing!.toStringAsFixed(2) : '';
+    final String height = style.height != null ? ' height: ${style.height!.toStringAsFixed(2)}' : '';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

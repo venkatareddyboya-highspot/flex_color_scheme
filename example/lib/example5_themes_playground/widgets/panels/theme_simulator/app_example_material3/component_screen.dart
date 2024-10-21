@@ -36,8 +36,7 @@ class FirstComponentList extends StatelessWidget {
         child: ListView(
           padding: showSecondList
               ? EdgeInsetsDirectional.only(top: padding.top, end: smallSpacing)
-              : EdgeInsetsDirectional.only(
-                  top: padding.top, bottom: padding.bottom),
+              : EdgeInsetsDirectional.only(top: padding.top, bottom: padding.bottom),
           children: <Widget>[
             const Actions(),
             colDivider,
@@ -79,8 +78,7 @@ class SecondComponentList extends StatelessWidget {
         child: ListView(
           padding: !showSecondList
               ? const EdgeInsetsDirectional.only(end: smallSpacing)
-              : EdgeInsetsDirectional.only(
-                  top: padding.top, bottom: padding.bottom),
+              : EdgeInsetsDirectional.only(top: padding.top, bottom: padding.bottom),
           children: <Widget>[
             Navigation(scaffoldKey: scaffoldKey),
             colDivider,
@@ -333,8 +331,7 @@ class FloatingActionButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Floating action buttons',
-      tooltipMessage:
-          'Use FloatingActionButton or FloatingActionButton.extended',
+      tooltipMessage: 'Use FloatingActionButton or FloatingActionButton.extended',
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         runSpacing: smallSpacing,
@@ -590,49 +587,45 @@ class _TextFieldsState extends State<TextFields> {
           ),
           Padding(
               padding: const EdgeInsets.all(smallSpacing),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Flexible(
-                      child: SizedBox(
-                        width: 200,
-                        child: TextField(
-                          controller: _controllerOutlined,
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon:
-                                _ClearButton(controller: _controllerOutlined),
-                            labelText: 'Outlined',
-                            hintText: 'hint text',
-                            helperText: 'supporting text',
-                            errorText: 'error text',
-                            border: const OutlineInputBorder(),
-                            filled: true,
-                          ),
-                        ),
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
+                Flexible(
+                  child: SizedBox(
+                    width: 200,
+                    child: TextField(
+                      controller: _controllerOutlined,
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.search),
+                        suffixIcon: _ClearButton(controller: _controllerOutlined),
+                        labelText: 'Outlined',
+                        hintText: 'hint text',
+                        helperText: 'supporting text',
+                        errorText: 'error text',
+                        border: const OutlineInputBorder(),
+                        filled: true,
                       ),
                     ),
-                    const SizedBox(width: smallSpacing),
-                    Flexible(
-                      child: SizedBox(
-                        width: 200,
-                        child: TextField(
-                          controller: _controllerOutlined,
-                          enabled: false,
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon:
-                                _ClearButton(controller: _controllerOutlined),
-                            labelText: 'Disabled',
-                            hintText: 'hint text',
-                            helperText: 'supporting text',
-                            border: const OutlineInputBorder(),
-                            filled: true,
-                          ),
-                        ),
+                  ),
+                ),
+                const SizedBox(width: smallSpacing),
+                Flexible(
+                  child: SizedBox(
+                    width: 200,
+                    child: TextField(
+                      controller: _controllerOutlined,
+                      enabled: false,
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.search),
+                        suffixIcon: _ClearButton(controller: _controllerOutlined),
+                        labelText: 'Disabled',
+                        hintText: 'hint text',
+                        helperText: 'supporting text',
+                        border: const OutlineInputBorder(),
+                        filled: true,
                       ),
                     ),
-                  ])),
+                  ),
+                ),
+              ])),
         ],
       ),
     );
@@ -653,8 +646,7 @@ class _DialogsState extends State<Dialogs> {
       useRootNavigator: false,
       builder: (BuildContext context) => AlertDialog(
         title: const Text('What is a dialog?'),
-        content: const Text(
-            'A dialog is a type of modal window that appears in front of '
+        content: const Text('A dialog is a type of modal window that appears in front of '
             'app content to provide critical information, or prompt '
             'for a decision to be made.'),
         actions: <Widget>[
@@ -703,8 +695,7 @@ class _DialogsState extends State<Dialogs> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Dialog',
-      tooltipMessage:
-          'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
+      tooltipMessage: 'Use showDialog with Dialog.fullscreen, AlertDialog, or SimpleDialog',
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,
         children: <Widget>[
@@ -776,8 +767,7 @@ class _SwitchRowState extends State<SwitchRow> {
   bool value0 = false;
   bool value1 = true;
 
-  final MaterialStateProperty<Icon?> thumbIcon =
-      MaterialStateProperty.resolveWith<Icon?>((Set<MaterialState> states) {
+  final MaterialStateProperty<Icon?> thumbIcon = MaterialStateProperty.resolveWith<Icon?>((Set<MaterialState> states) {
     if (states.contains(MaterialState.selected)) {
       return const Icon(Icons.check);
     }
@@ -945,8 +935,7 @@ class _ProgressIndicatorsState extends State<ProgressIndicators> {
 
     return ComponentDecoration(
       label: 'Progress indicators',
-      tooltipMessage:
-          'Use CircularProgressIndicator or LinearProgressIndicator',
+      tooltipMessage: 'Use CircularProgressIndicator or LinearProgressIndicator',
       child: Column(
         children: <Widget>[
           Row(
@@ -1122,15 +1111,11 @@ class _NavigationBarsState extends State<NavigationBars> {
     );
 
     if (widget.isExampleBar && widget.isBadgeExample) {
-      navigationBar = ComponentDecoration(
-          label: 'Badges',
-          tooltipMessage: 'Use Badge or Badge.count',
-          child: navigationBar);
+      navigationBar =
+          ComponentDecoration(label: 'Badges', tooltipMessage: 'Use Badge or Badge.count', child: navigationBar);
     } else if (widget.isExampleBar) {
-      navigationBar = ComponentDecoration(
-          label: 'Navigation bar',
-          tooltipMessage: 'Use NavigationBar',
-          child: navigationBar);
+      navigationBar =
+          ComponentDecoration(label: 'Navigation bar', tooltipMessage: 'Use NavigationBar', child: navigationBar);
     }
 
     return navigationBar;
@@ -1270,15 +1255,9 @@ ButtonStyle enabledFilledButtonStyle(bool selected, ColorScheme colors) {
     backgroundColor: selected ? colors.primary : colors.surfaceVariant,
     disabledForegroundColor: colors.onSurface.withOpacity(0.38),
     disabledBackgroundColor: colors.onSurface.withOpacity(0.12),
-    hoverColor: selected
-        ? colors.onPrimary.withOpacity(0.08)
-        : colors.primary.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onPrimary.withOpacity(0.12)
-        : colors.primary.withOpacity(0.12),
+    hoverColor: selected ? colors.onPrimary.withOpacity(0.08) : colors.primary.withOpacity(0.08),
+    focusColor: selected ? colors.onPrimary.withOpacity(0.12) : colors.primary.withOpacity(0.12),
+    highlightColor: selected ? colors.onPrimary.withOpacity(0.12) : colors.primary.withOpacity(0.12),
   );
 }
 
@@ -1291,19 +1270,12 @@ ButtonStyle disabledFilledButtonStyle(bool selected, ColorScheme colors) {
 
 ButtonStyle enabledFilledTonalButtonStyle(bool selected, ColorScheme colors) {
   return IconButton.styleFrom(
-    foregroundColor:
-        selected ? colors.onSecondaryContainer : colors.onSurfaceVariant,
-    backgroundColor:
-        selected ? colors.secondaryContainer : colors.surfaceVariant,
-    hoverColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.08)
-        : colors.onSurfaceVariant.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onSecondaryContainer.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
+    foregroundColor: selected ? colors.onSecondaryContainer : colors.onSurfaceVariant,
+    backgroundColor: selected ? colors.secondaryContainer : colors.surfaceVariant,
+    hoverColor: selected ? colors.onSecondaryContainer.withOpacity(0.08) : colors.onSurfaceVariant.withOpacity(0.08),
+    focusColor: selected ? colors.onSecondaryContainer.withOpacity(0.12) : colors.onSurfaceVariant.withOpacity(0.12),
+    highlightColor:
+        selected ? colors.onSecondaryContainer.withOpacity(0.12) : colors.onSurfaceVariant.withOpacity(0.12),
   );
 }
 
@@ -1317,19 +1289,12 @@ ButtonStyle disabledFilledTonalButtonStyle(bool selected, ColorScheme colors) {
 ButtonStyle enabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
   return IconButton.styleFrom(
     backgroundColor: selected ? colors.inverseSurface : null,
-    hoverColor: selected
-        ? colors.onInverseSurface.withOpacity(0.08)
-        : colors.onSurfaceVariant.withOpacity(0.08),
-    focusColor: selected
-        ? colors.onInverseSurface.withOpacity(0.12)
-        : colors.onSurfaceVariant.withOpacity(0.12),
-    highlightColor: selected
-        ? colors.onInverseSurface.withOpacity(0.12)
-        : colors.onSurface.withOpacity(0.12),
+    hoverColor: selected ? colors.onInverseSurface.withOpacity(0.08) : colors.onSurfaceVariant.withOpacity(0.08),
+    focusColor: selected ? colors.onInverseSurface.withOpacity(0.12) : colors.onSurfaceVariant.withOpacity(0.12),
+    highlightColor: selected ? colors.onInverseSurface.withOpacity(0.12) : colors.onSurface.withOpacity(0.12),
     side: BorderSide(color: colors.outline),
   ).copyWith(
-    foregroundColor:
-        MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+    foregroundColor: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.selected)) {
         return colors.onInverseSurface;
       }
@@ -1344,8 +1309,7 @@ ButtonStyle enabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
 ButtonStyle disabledOutlinedButtonStyle(bool selected, ColorScheme colors) {
   return IconButton.styleFrom(
     disabledForegroundColor: colors.onSurface.withOpacity(0.38),
-    disabledBackgroundColor:
-        selected ? colors.onSurface.withOpacity(0.12) : null,
+    disabledBackgroundColor: selected ? colors.onSurface.withOpacity(0.12) : null,
     side: selected ? null : BorderSide(color: colors.outline.withOpacity(0.12)),
   );
 }
@@ -1364,8 +1328,7 @@ class _ChipsState extends State<Chips> {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Chips',
-      tooltipMessage:
-          'Use ActionChip, FilterChip, or InputChip. \nActionChip can '
+      tooltipMessage: 'Use ActionChip, FilterChip, or InputChip. \nActionChip can '
           'also be used for suggestion chip',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -1457,8 +1420,7 @@ class _DatePickersState extends State<DatePickers> {
             selectedDate = date;
             if (selectedDate != null) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(
-                    'Selected Date: ${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'),
+                content: Text('Selected Date: ${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}'),
               ));
             }
           });
@@ -1545,22 +1507,10 @@ class _SingleChoiceState extends State<SingleChoice> {
   Widget build(BuildContext context) {
     return SegmentedButton<Calendar>(
       segments: const <ButtonSegment<Calendar>>[
-        ButtonSegment<Calendar>(
-            value: Calendar.day,
-            label: Text('Day'),
-            icon: Icon(Icons.calendar_view_day)),
-        ButtonSegment<Calendar>(
-            value: Calendar.week,
-            label: Text('Week'),
-            icon: Icon(Icons.calendar_view_week)),
-        ButtonSegment<Calendar>(
-            value: Calendar.month,
-            label: Text('Mon'),
-            icon: Icon(Icons.calendar_view_month)),
-        ButtonSegment<Calendar>(
-            value: Calendar.year,
-            label: Text('Year'),
-            icon: Icon(Icons.calendar_today)),
+        ButtonSegment<Calendar>(value: Calendar.day, label: Text('Day'), icon: Icon(Icons.calendar_view_day)),
+        ButtonSegment<Calendar>(value: Calendar.week, label: Text('Week'), icon: Icon(Icons.calendar_view_week)),
+        ButtonSegment<Calendar>(value: Calendar.month, label: Text('Mon'), icon: Icon(Icons.calendar_view_month)),
+        ButtonSegment<Calendar>(value: Calendar.year, label: Text('Year'), icon: Icon(Icons.calendar_today)),
       ],
       selected: <Calendar>{calendarView},
       onSelectionChanged: (Set<Calendar> newSelection) {
@@ -1618,8 +1568,7 @@ class SnackBarSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ComponentDecoration(
       label: 'Snackbar',
-      tooltipMessage:
-          'Use ScaffoldMessenger.of(context).showSnackBar with SnackBar',
+      tooltipMessage: 'Use ScaffoldMessenger.of(context).showSnackBar with SnackBar',
       child: TextButton(
         onPressed: () {
           final SnackBar snackBar = SnackBar(
@@ -1653,7 +1602,7 @@ class BottomSheetSection extends StatefulWidget {
 
 class _BottomSheetSectionState extends State<BottomSheetSection> {
   bool isNonModalBottomSheetOpen = false;
-  PersistentBottomSheetController<void>? _nonModalBottomSheetController;
+  PersistentBottomSheetController? _nonModalBottomSheetController;
 
   @override
   Widget build(BuildContext context) {
@@ -1720,9 +1669,7 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
           ),
           TextButton(
             child: Text(
-              isNonModalBottomSheetOpen
-                  ? 'Hide bottom sheet'
-                  : 'Show bottom sheet',
+              isNonModalBottomSheetOpen ? 'Hide bottom sheet' : 'Show bottom sheet',
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             onPressed: () {
@@ -1738,7 +1685,7 @@ class _BottomSheetSectionState extends State<BottomSheetSection> {
                 });
               }
 
-              _nonModalBottomSheetController = showBottomSheet<void>(
+              _nonModalBottomSheetController = showBottomSheet(
                 elevation: 8.0,
                 context: context,
                 constraints: const BoxConstraints(maxWidth: 640),
@@ -1782,8 +1729,7 @@ class BottomAppBars extends StatelessWidget {
                 elevation: 0.0,
                 child: const Icon(Icons.add),
               ),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.endContained,
+              floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
               bottomNavigationBar: BottomAppBar(
                 child: Row(
                   children: <Widget>[
@@ -1815,8 +1761,7 @@ class IconButtonAnchorExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MenuAnchor(
-      builder:
-          (BuildContext context, MenuController controller, Widget? child) {
+      builder: (BuildContext context, MenuController controller, Widget? child) {
         return IconButton(
           onPressed: () {
             if (controller.isOpen) {
@@ -1865,8 +1810,7 @@ class ButtonAnchorExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MenuAnchor(
-      builder:
-          (BuildContext context, MenuController controller, Widget? child) {
+      builder: (BuildContext context, MenuController controller, Widget? child) {
         return FilledButton.tonal(
           onPressed: () {
             if (controller.isOpen) {
@@ -1915,8 +1859,7 @@ class NavigationDrawers extends StatelessWidget {
           colDivider,
           colDivider,
           TextButton(
-            child: const Text('Show modal navigation drawer',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+            child: const Text('Show modal navigation drawer', style: TextStyle(fontWeight: FontWeight.bold)),
             onPressed: () {
               scaffoldKey.currentState!.openEndDrawer();
             },
@@ -1931,8 +1874,7 @@ class NavigationDrawerSection extends StatefulWidget {
   const NavigationDrawerSection({super.key});
 
   @override
-  State<NavigationDrawerSection> createState() =>
-      _NavigationDrawerSectionState();
+  State<NavigationDrawerSection> createState() => _NavigationDrawerSectionState();
 }
 
 class _NavigationDrawerSectionState extends State<NavigationDrawerSection> {
@@ -1998,16 +1940,13 @@ class ExampleDestination {
 const List<ExampleDestination> destinations = <ExampleDestination>[
   ExampleDestination('Inbox', Icon(Icons.inbox_outlined), Icon(Icons.inbox)),
   ExampleDestination('Outbox', Icon(Icons.send_outlined), Icon(Icons.send)),
-  ExampleDestination(
-      'Favorites', Icon(Icons.favorite_outline), Icon(Icons.favorite)),
+  ExampleDestination('Favorites', Icon(Icons.favorite_outline), Icon(Icons.favorite)),
   ExampleDestination('Trash', Icon(Icons.delete_outline), Icon(Icons.delete)),
 ];
 
 const List<ExampleDestination> labelDestinations = <ExampleDestination>[
-  ExampleDestination(
-      'Family', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
-  ExampleDestination(
-      'School', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
+  ExampleDestination('Family', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
+  ExampleDestination('School', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
   ExampleDestination('Work', Icon(Icons.bookmark_border), Icon(Icons.bookmark)),
 ];
 
@@ -2019,8 +1958,7 @@ class NavigationRails extends StatelessWidget {
     return const ComponentDecoration(
       label: 'Navigation rail',
       tooltipMessage: 'Use NavigationRail',
-      child: IntrinsicWidth(
-          child: SizedBox(height: 420, child: NavigationRailSection())),
+      child: IntrinsicWidth(child: SizedBox(height: 420, child: NavigationRailSection())),
     );
   }
 }
@@ -2047,8 +1985,7 @@ class _NavigationRailSectionState extends State<NavigationRailSection> {
           });
         },
         elevation: 4,
-        leading: FloatingActionButton(
-            child: const Icon(Icons.create), onPressed: () {}),
+        leading: FloatingActionButton(child: const Icon(Icons.create), onPressed: () {}),
         groupAlignment: 0.0,
         selectedIndex: navRailIndex,
         destinations: <NavigationRailDestination>[
@@ -2222,18 +2159,14 @@ class _MenusState extends State<Menus> {
 
   @override
   Widget build(BuildContext context) {
-    final List<DropdownMenuEntry<ColorLabel>> colorEntries =
-        <DropdownMenuEntry<ColorLabel>>[];
+    final List<DropdownMenuEntry<ColorLabel>> colorEntries = <DropdownMenuEntry<ColorLabel>>[];
     for (final ColorLabel color in ColorLabel.values) {
-      colorEntries.add(DropdownMenuEntry<ColorLabel>(
-          value: color, label: color.label, enabled: color.label != 'Grey'));
+      colorEntries.add(DropdownMenuEntry<ColorLabel>(value: color, label: color.label, enabled: color.label != 'Grey'));
     }
 
-    final List<DropdownMenuEntry<IconLabel>> iconEntries =
-        <DropdownMenuEntry<IconLabel>>[];
+    final List<DropdownMenuEntry<IconLabel>> iconEntries = <DropdownMenuEntry<IconLabel>>[];
     for (final IconLabel icon in IconLabel.values) {
-      iconEntries
-          .add(DropdownMenuEntry<IconLabel>(value: icon, label: icon.label));
+      iconEntries.add(DropdownMenuEntry<IconLabel>(value: icon, label: icon.label));
     }
 
     return ComponentDecoration(
@@ -2382,8 +2315,7 @@ class _SearchAnchorsState extends State<SearchAnchors> {
               icon: const Icon(Icons.call_missed),
               onPressed: () {
                 controller.text = color.label;
-                controller.selection =
-                    TextSelection.collapsed(offset: controller.text.length);
+                controller.selection = TextSelection.collapsed(offset: controller.text.length);
               }),
           onTap: () {
             controller.closeView(color.label);
@@ -2403,8 +2335,7 @@ class _SearchAnchorsState extends State<SearchAnchors> {
                   icon: const Icon(Icons.call_missed),
                   onPressed: () {
                     controller.text = filteredColor.label;
-                    controller.selection =
-                        TextSelection.collapsed(offset: controller.text.length);
+                    controller.selection = TextSelection.collapsed(offset: controller.text.length);
                   }),
               onTap: () {
                 controller.closeView(filteredColor.label);
@@ -2432,16 +2363,14 @@ class _SearchAnchorsState extends State<SearchAnchors> {
         children: <Widget>[
           SearchAnchor.bar(
             barHintText: 'Search colors',
-            suggestionsBuilder:
-                (BuildContext context, SearchController controller) {
+            suggestionsBuilder: (BuildContext context, SearchController controller) {
               if (controller.text.isEmpty) {
                 if (searchHistory.isNotEmpty) {
                   return getHistoryList(controller);
                 }
                 return <Widget>[
                   const Center(
-                    child: Text('No search history.',
-                        style: TextStyle(color: Colors.grey)),
+                    child: Text('No search history.', style: TextStyle(color: Colors.grey)),
                   )
                 ];
               }
@@ -2449,10 +2378,7 @@ class _SearchAnchorsState extends State<SearchAnchors> {
             },
           ),
           const SizedBox(height: 20),
-          if (selectedColor == null)
-            const Text('Select a color')
-          else
-            Text('Last selected color is $selectedColor')
+          if (selectedColor == null) const Text('Select a color') else Text('Last selected color is $selectedColor')
         ],
       ),
     );
@@ -2493,14 +2419,12 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
                 Tooltip(
                   message: widget.tooltipMessage,
                   child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Icon(Icons.info_outline, size: 16)),
+                      padding: EdgeInsets.symmetric(horizontal: 5.0), child: Icon(Icons.info_outline, size: 16)),
                 ),
               ],
             ),
             ConstrainedBox(
-              constraints:
-                  const BoxConstraints.tightFor(width: widthConstraint),
+              constraints: const BoxConstraints.tightFor(width: widthConstraint),
               // Tapping within the a component card should request focus
               // for that component's children.
               child: Focus(
@@ -2520,8 +2444,7 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
                       borderRadius: const BorderRadius.all(Radius.circular(12)),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 5.0, vertical: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 20.0),
                       child: Center(
                         child: widget.child,
                       ),
@@ -2538,8 +2461,7 @@ class _ComponentDecorationState extends State<ComponentDecoration> {
 }
 
 class ComponentGroupDecoration extends StatelessWidget {
-  const ComponentGroupDecoration(
-      {super.key, required this.label, required this.children});
+  const ComponentGroupDecoration({super.key, required this.label, required this.children});
 
   final String label;
   final List<Widget> children;
@@ -2557,11 +2479,7 @@ class ComponentGroupDecoration extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 20.0),
           child: Center(
             child: Column(
-              children: <Widget>[
-                Text(label, style: theme.textTheme.titleLarge),
-                colDivider,
-                ...children
-              ],
+              children: <Widget>[Text(label, style: theme.textTheme.titleLarge), colDivider, ...children],
             ),
           ),
         ),

@@ -24,6 +24,7 @@ linter:
     #   PACKAGE:     enabled  : By commenting it out.
     #   APPLICATION: disabled : With false value. (Default, assume we are making an app most of the time.)
     diagnostic_describe_all_properties: false
+    lines_longer_than_80_chars : false
 
     # DO document all public members.
     #
