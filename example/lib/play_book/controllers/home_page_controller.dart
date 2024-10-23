@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../components/button_widget.dart';
+
 enum Components { Button, Switch, UserCard }
 
 class HomePageController extends GetxController{
@@ -18,7 +20,7 @@ class HomePageController extends GetxController{
 
   final Map<Components, Widget> componentsList = {
 
-    Components.Button : ElevatedButtonWidget(),
+    Components.Button : ButtonWidget(buttonType: ButtonType.primary, label: 'Button'),
     Components.Switch: SwitchButton(),
     Components.UserCard: UserCard()
 

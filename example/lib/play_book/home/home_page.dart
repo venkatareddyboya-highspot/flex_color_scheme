@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../controllers/button/button_config_controller.dart';
 import 'components_code_snippet_view.dart';
 
 class PlayBookHomePage extends StatelessWidget {
@@ -18,9 +19,10 @@ class PlayBookHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Get.put(HomePageController());
+    Get.put(ButtonConfigController());
 
     return Scaffold(
-      appBar: AppBar(title: Text("Play Book"),),
+      appBar: AppBar(title: Text("Mobile Widgets Play Book", style: TextStyle(color: Colors.white),), backgroundColor: Colors.blueAccent,),
       body: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
