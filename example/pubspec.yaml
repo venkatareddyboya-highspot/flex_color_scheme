@@ -85,6 +85,7 @@ dependencies:
   # Used for launching a WEB URL, by Google flutter.dev.
   # https://pub.dev/packages/url_launcher
   url_launcher: ^6.1.12
+  gradient_borders: ^1.0.1
 
 
 dev_dependencies:
