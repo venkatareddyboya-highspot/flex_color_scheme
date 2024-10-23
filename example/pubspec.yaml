@@ -84,6 +84,7 @@ dependencies:
   # https://pub.dev/packages/url_launcher
   url_launcher: ^6.1.12
   gradient_borders: ^1.0.1
+  equatable:
 
 
 dev_dependencies:

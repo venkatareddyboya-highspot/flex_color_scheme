@@ -1,9 +1,25 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+class RadioGroupOptionInfo extends Equatable {
+  final String value;
+  final String label;
+  final bool isDisabled;
+
+  const RadioGroupOptionInfo({
+    required this.value,
+    required this.label,
+    this.isDisabled = false,
+  });
+
+  @override
+  List<Object?> get props => [value, label];
+}
+
 class RadioGroupInputWidget extends StatelessWidget {
-  final Map<String, String> options;
-  final String? selectedOption;
-  final Function(String val) onChanged;
+  final List<RadioGroupOptionInfo> optionsList;
+  final RadioGroupOptionInfo? selectedOption;
+  final void Function(RadioGroupOptionInfo value) onChanged;
   final bool isSegmented;
   final bool isRequired;
   final bool isHorizontal;
@@ -11,8 +27,8 @@ class RadioGroupInputWidget extends StatelessWidget {
   final String label;
 
   const RadioGroupInputWidget({
-    Key? key,
-    required this.options,
+    super.key,
+    required this.optionsList,
     required this.selectedOption,
     required this.onChanged,
     this.isSegmented = false,
@@ -20,7 +36,7 @@ class RadioGroupInputWidget extends StatelessWidget {
     this.isHorizontal = true,
     this.tooltipMessage,
     required this.label,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +52,13 @@ class RadioGroupInputWidget extends StatelessWidget {
         if (isSegmented) ...[
           Builder(
             builder: (_) {
-              final widgetList = options.entries
+              final widgetList = optionsList
                   .map((entry) => _SegmentedRadioTileWidget(
-                        label: entry.value,
+                        label: entry.label,
                         isHorizontal: isHorizontal,
-                        isSelected: entry.key == selectedOption,
-                        onTap: () => onChanged(entry.key),
+                        isSelected: entry == selectedOption,
+                        onTap: () => onChanged(entry),
+                        isDisabled: entry.isDisabled,
                       ))
                   .toList();
 
@@ -63,13 +80,14 @@ class RadioGroupInputWidget extends StatelessWidget {
         ] else ...[
           Builder(
             builder: (_) {
-              final widgetList = options.entries
+              final widgetList = optionsList
                   .map(
                     (entry) => _NormalRadioTileWidget(
-                      label: entry.value,
+                      label: entry.label,
                       isHorizontal: isHorizontal,
-                      isSelected: entry.key == selectedOption,
-                      onTap: () => onChanged(entry.key),
+                      isSelected: entry == selectedOption,
+                      onTap: () => onChanged(entry),
+                      isDisabled: entry.isDisabled,
                     ),
                   )
                   .toList();
@@ -127,17 +145,19 @@ class _NormalRadioTileWidget extends StatelessWidget {
     required this.label,
     required this.onTap,
     required this.isSelected,
+    required this.isDisabled,
   });
 
   final bool isHorizontal;
   final String label;
   final bool isSelected;
   final VoidCallback onTap;
+  final bool isDisabled;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: isDisabled ? null : onTap,
       child: Container(
         margin: EdgeInsets.only(
             right: isHorizontal ? 8 : 0, bottom: isHorizontal ? 0 : 8),
@@ -149,22 +169,39 @@ class _NormalRadioTileWidget extends StatelessWidget {
               height: 20,
               padding: const EdgeInsets.all(5.5),
               decoration: BoxDecoration(
-                  color: isSelected ? Colors.teal : Colors.white,
-                  borderRadius: BorderRadius.circular(40),
-                  border: isSelected ? null : Border.all(color: Colors.grey)),
+                color: isSelected
+                    ? (isDisabled
+                        ? const Color(0xFFF2F2F2)
+                        : const Color(0xFF17787C))
+                    : Colors.white,
+                borderRadius: BorderRadius.circular(40),
+                border: isSelected
+                    ? null
+                    : Border.all(
+                        color: isDisabled
+                            ? const Color(0xFFDCDCDC)
+                            : const Color(0xFF949494),
+                        width: 1,
+                      ),
+              ),
               margin: const EdgeInsets.only(right: 8),
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(40)),
+                  color: isDisabled && isSelected
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white,
+                  borderRadius: BorderRadius.circular(40),
+                ),
               ),
             ),
             Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: Colors.black,
+                color: isDisabled
+                    ? const Color(0xFFDCDCDC)
+                    : const Color(0xFF353535),
               ),
             ),
           ],
@@ -181,27 +218,35 @@ class _SegmentedRadioTileWidget extends StatelessWidget {
     required this.label,
     required this.onTap,
     required this.isSelected,
+    required this.isDisabled,
   });
 
   final bool isHorizontal;
   final String label;
   final bool isSelected;
   final VoidCallback onTap;
+  final bool isDisabled;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: isDisabled ? null : onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 7),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.teal : Colors.white,
+          color: isSelected
+              ? (isDisabled ? const Color(0xFFF2F2F2) : const Color(0xFF17787C))
+              : Colors.white,
           borderRadius: BorderRadius.circular(6),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected ? Colors.white : Colors.black,
+            color: isDisabled
+                ? const Color(0xFFDCDCDC)
+                : (isSelected ? Colors.white : const Color(0xFF353535)),
+            fontWeight: FontWeight.w400,
+            fontSize: 14,
           ),
         ),
       ),

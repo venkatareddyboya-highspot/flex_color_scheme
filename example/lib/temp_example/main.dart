@@ -13,7 +13,6 @@ class App extends StatelessWidget {
     return const MaterialApp(
       themeMode: ThemeMode.light,
       //home: HomePage(),
-      //home: InputFieldHomePage(),
       home: RadioFieldHomePage(),
     );
   }
@@ -27,13 +26,29 @@ class RadioFieldHomePage extends StatefulWidget {
 }
 
 class _RadioFieldHomePageState extends State<RadioFieldHomePage> {
-  String? _selectedOption;
+  RadioGroupOptionInfo? _selectedOption;
 
   final options = {
     'option-1': 'Option 1',
     'option-2': 'Option 2',
     'option-3': 'Option 3',
   };
+
+  static const optionsList = <RadioGroupOptionInfo>[
+    RadioGroupOptionInfo(label: 'Option 1', value: 'option-1'),
+    RadioGroupOptionInfo(label: 'Option 2', value: 'option-2'),
+    RadioGroupOptionInfo(label: 'Option 3', value: 'option-3'),
+    RadioGroupOptionInfo(label: 'Option 4', value: 'option-4'),
+  ];
+
+  static const optionsList2 = <RadioGroupOptionInfo>[
+    RadioGroupOptionInfo(label: 'Option 1', value: 'option-1'),
+    RadioGroupOptionInfo(
+        label: 'Option 2', value: 'option-2', isDisabled: true),
+    RadioGroupOptionInfo(
+        label: 'Option 3', value: 'option-3', isDisabled: true),
+    RadioGroupOptionInfo(label: 'Option 4', value: 'option-4'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +63,7 @@ class _RadioFieldHomePageState extends State<RadioFieldHomePage> {
               const SizedBox(height: 12),
               RadioGroupInputWidget(
                 label: 'Some label',
-                options: options,
+                optionsList: optionsList,
                 selectedOption: _selectedOption,
                 onChanged: (val) {
                   setState(() {
@@ -63,7 +78,7 @@ class _RadioFieldHomePageState extends State<RadioFieldHomePage> {
               const SizedBox(height: 12),
               RadioGroupInputWidget(
                 label: 'Some label',
-                options: options,
+                optionsList: optionsList,
                 selectedOption: _selectedOption,
                 onChanged: (val) {
                   setState(() {
@@ -78,7 +93,7 @@ class _RadioFieldHomePageState extends State<RadioFieldHomePage> {
               const SizedBox(height: 12),
               RadioGroupInputWidget(
                 label: 'Some label',
-                options: options,
+                optionsList: optionsList,
                 selectedOption: _selectedOption,
                 onChanged: (val) {
                   setState(() {
@@ -93,7 +108,7 @@ class _RadioFieldHomePageState extends State<RadioFieldHomePage> {
               const SizedBox(height: 12),
               RadioGroupInputWidget(
                 label: 'Some label',
-                options: options,
+                optionsList: optionsList,
                 selectedOption: _selectedOption,
                 onChanged: (val) {
                   setState(() {
@@ -102,6 +117,36 @@ class _RadioFieldHomePageState extends State<RadioFieldHomePage> {
                 },
                 isRequired: true,
                 isHorizontal: true,
+                isSegmented: true,
+                tooltipMessage: 'some tooltip message',
+              ),
+              const SizedBox(height: 24),
+              RadioGroupInputWidget(
+                label: 'Some label',
+                optionsList: optionsList2,
+                selectedOption: _selectedOption,
+                onChanged: (val) {
+                  setState(() {
+                    _selectedOption = val;
+                  });
+                },
+                isRequired: true,
+                isHorizontal: false,
+                isSegmented: false,
+                tooltipMessage: 'some tooltip message',
+              ),
+              const SizedBox(height: 24),
+              RadioGroupInputWidget(
+                label: 'Some label',
+                optionsList: optionsList2,
+                selectedOption: _selectedOption,
+                onChanged: (val) {
+                  setState(() {
+                    _selectedOption = val;
+                  });
+                },
+                isRequired: true,
+                isHorizontal: false,
                 isSegmented: true,
                 tooltipMessage: 'some tooltip message',
               ),
