@@ -1,3 +1,7 @@
+import 'package:flex_color_scheme_example/example5_themes_playground/theme/flex_theme_light.dart';
+import 'package:flex_color_scheme_example/example5_themes_playground/theme/theme_data_dark.dart';
+import 'package:flex_color_scheme_example/example5_themes_playground/theme/theme_data_light.dart';
+import 'package:flex_color_scheme_example/play_book/controllers/home_binding.dart';
 import 'package:flex_color_scheme_example/play_book/home/home_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -5,15 +9,10 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../play_book/controllers/home_binding.dart';
+import '../example5_themes_playground/theme/flex_theme_dark.dart';
 import '../shared/controllers/theme_controller.dart';
 import '../shared/services/theme_service.dart';
 import '../shared/services/theme_service_hive.dart';
-import 'theme/flex_theme_dark.dart';
-import 'theme/flex_theme_light.dart';
-import 'theme/theme_data_dark.dart';
-import 'theme/theme_data_light.dart';
-import 'widgets/pages/home_page.dart';
 
 /// FlexColorScheme EXAMPLE 5 - Themes Playground
 ///
@@ -38,25 +37,7 @@ import 'widgets/pages/home_page.dart';
 /// https://rydmike.com/flexcolorscheme/themesplayground-v7-2
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Use a ThemeController, which glues our theme settings to Flutter Widgets.
-  // The controller uses an abstract ThemeService interface to get and save the
-  // settings. There are 3 implementations available to choose from:
-  //
-  // 0. ThemeService      - Abstract interface base class.
-  // 1. ThemeServiceMem   - Only keeps settings in memory.
-  // 2. ThemeServicePrefs - Persist settings locally using SharedPreferences.
-  // 3. ThemeServiceHive  - Persist settings locally using Hive.
-  //
-  // Here we use Hive. The examples are all built using same
-  // "example" app. If we use SharedPreferences in more than one of the apps
-  // they would use the same storage container and share the settings when you
-  // build them locally. By using Hive for most examples, we can change
-  // the storage container name for each example. In these demos the
-  // SharedPreferences service is only used for example 3, but you can swap in
-  // the Hive based one for it as well.
-  //
-  // The ThemeServiceHive constructor requires a box name, the others do not.
-  // The box name is just a file name for the file that stores the settings.
+
   final ThemeService themeService = ThemeServiceHive('flex_color_scheme_v5_box_5');
   // Initialize the theme service.
   await themeService.init();
@@ -74,10 +55,6 @@ Future<void> main() async {
     yield LicenseEntryWithLineBreaks(<String>['google_fonts'], license);
   });
 
-  // Run the app and pass in the ThemeController. The app listens to the
-  // ThemeController for changes. The same ThemeController as used in example 4
-  // controls all the myriad of Theme settings and the ThemeService also
-  // persists the settings with the injected ThemeServiceHive.
   runApp(PlaygroundApp(controller: themeController));
 }
 
@@ -95,13 +72,16 @@ class PlaygroundApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Themes Playground',
+
           theme: controller.useFlexColorScheme ? flexThemeLight(controller) : themeDataLight(controller),
           darkTheme: controller.useFlexColorScheme ? flexThemeDark(controller) : themeDataDark(controller),
           // Use the dark/light theme based on controller setting.
           themeMode: controller.themeMode,
           initialBinding: HomeBinding(),
           home: GestureDetector(
+
             onTap: () => FocusScope.of(context).unfocus(),
+
             child: PlayBookHomePage(),
           ),
         );

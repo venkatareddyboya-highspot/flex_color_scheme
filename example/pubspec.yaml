@@ -42,6 +42,8 @@ dependencies:
   # https://pub.dev/packages/flex_seed_scheme
   flex_seed_scheme: ^1.4.0
 
+  get: ^4.6.6
+
   # The Flutter SDK, by Google flutter.dev.
   flutter:
     sdk: flutter

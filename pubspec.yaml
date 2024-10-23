@@ -41,6 +41,8 @@ dependencies:
   # FlexSeedScheme package, by Mike Rydstrom, rydmike.com (@rydmike).
   # https://pub.dev/packages/flex_seed_scheme
   flex_seed_scheme: ^1.4.0
+  dart_code_viewer2: ^1.0.2
+
 
   flutter:
     sdk: flutter
