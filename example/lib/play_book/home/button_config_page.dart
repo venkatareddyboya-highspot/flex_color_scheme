@@ -1,5 +1,6 @@
 
 
+import 'dart:html' as html;
 import 'package:flex_color_scheme_example/play_book/components/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,12 @@ class _ButtonConfigPageState extends State<ButtonConfigPage> {
     return Scaffold(
       backgroundColor: Colors.lightBlue[100],
       appBar: AppBar(
-        title: Text('Configure Button'),
+        title: Text('Button'),
+        actions: [
+          IconButton(onPressed: (){
+            html.window.open('https://www.figma.com/design/VRc6wq3QQacuS6y3ku59Z4/Arctic---Polar-UI?node-id=350-9483&node-type=frame&t=E8XO53W3dTwodpaE-0', 'new tab');
+          }, icon: Icon(Icons.description_rounded, color: Colors.black,)),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -1,5 +1,6 @@
 
 import 'package:flex_color_scheme_example/play_book/controllers/home_page_controller.dart';
+import 'package:flex_color_scheme_example/play_book/controllers/radio/radio_config_controller.dart';
 import 'package:flex_color_scheme_example/play_book/home/components_list_view.dart';
 import 'package:flex_color_scheme_example/play_book/simulator/theme_simulator.dart';
 import 'package:flex_color_scheme_example/shared/controllers/theme_controller.dart';
@@ -20,6 +21,7 @@ class PlayBookHomePage extends StatelessWidget {
 
     Get.put(HomePageController());
     Get.put(ButtonConfigController());
+    Get.put(RadioConfigController());
 
     return Scaffold(
       appBar: AppBar(title: Text("Mobile Widgets Play Book", style: TextStyle(color: Colors.white),), backgroundColor: Colors.blueAccent,),

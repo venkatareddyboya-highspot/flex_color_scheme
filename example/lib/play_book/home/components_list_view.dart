@@ -14,7 +14,7 @@ class ComponentsListView extends StatelessWidget {
   Widget build(BuildContext context) {
 
     // Getting the keys as an Iterable
-    Iterable<Components> keys = homePageController.componentsList.keys;
+    Iterable<Components> keys = homePageController.widgetConfigList.keys;
 
     // Convert the keys to a List
     List<Components> keysList = keys.toList();
@@ -22,7 +22,7 @@ class ComponentsListView extends StatelessWidget {
     return GetBuilder<HomePageController>(
       builder: (_) {
         return ListView.builder(
-            itemCount: homePageController.componentsList.length,
+            itemCount: homePageController.widgetConfigList.length,
             itemBuilder: (ctx, index){
               return ComponentsListItem(componentName: keysList[index], isSelected: homePageController.currentSelectedWidget == keysList[index],);
             });
