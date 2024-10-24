@@ -22,7 +22,7 @@ class PlayBookHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Mobile Widgets Play Book",
+          "Mobile UI Play Book",
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.blueAccent,
@@ -65,8 +65,10 @@ class PlayBookHomePage extends StatelessWidget {
                 padding: EdgeInsets.all(16),
                 margin: EdgeInsets.all(16),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ThemeSimulator(),
+                    Text('Themes'),
                     Container(
                       height: 80,
                       child: GetBuilder<ThemesController>(

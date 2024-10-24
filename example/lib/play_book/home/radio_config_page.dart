@@ -27,16 +27,23 @@ class _RadioButtonConfigScreenState extends State<RadioButtonConfigScreen> {
       appBar: AppBar(
         title: Text('Radio Button'),
         actions: [
-          IconButton(
-              onPressed: () {
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: InkWell(
+              child: Text(
+                'Polar Desgin Spec',
+                style: TextStyle(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              onTap: () {
                 html.window.open(
                     'https://www.figma.com/design/VRc6wq3QQacuS6y3ku59Z4/Arctic---Polar-UI?node-id=353-8136&t=u1D1MtCgRjEwDh0L-4',
                     'new tab');
               },
-              icon: Icon(
-                Icons.description_rounded,
-                color: Colors.black,
-              )),
+            ),
+          ),
         ],
       ),
       body: Padding(

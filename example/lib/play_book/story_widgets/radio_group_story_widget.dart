@@ -9,7 +9,7 @@ class RadioGroupStoryWidget extends StatefulWidget {
 }
 
 class _RadioGroupStoryWidgetState extends State<RadioGroupStoryWidget> {
-  RadioGroupOptionInfo? _selectedOption;
+  RadioGroupOptionInfo? _selectedOption = optionsList.first;
 
   static const optionsList = <RadioGroupOptionInfo>[
     RadioGroupOptionInfo(label: 'Option 1', value: 'option-1'),

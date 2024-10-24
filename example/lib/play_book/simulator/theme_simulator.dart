@@ -117,7 +117,7 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
                 color: theme.colorScheme.surfaceVariant,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
-                    maxHeight: MediaQuery.of(context).size.height * 0.7,
+                    maxHeight: MediaQuery.of(context).size.height * 0.67,
                   ),
                   child: Padding(
                       padding: const EdgeInsets.all(16.0),

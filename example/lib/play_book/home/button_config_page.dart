@@ -19,16 +19,23 @@ class _ButtonConfigPageState extends State<ButtonConfigPage> {
       appBar: AppBar(
         title: Text('Button'),
         actions: [
-          IconButton(
-              onPressed: () {
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: InkWell(
+              child: Text(
+                'Polar Desgin Spec',
+                style: TextStyle(
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              onTap: () {
                 html.window.open(
                     'https://www.figma.com/design/VRc6wq3QQacuS6y3ku59Z4/Arctic---Polar-UI?node-id=350-9483&node-type=frame&t=E8XO53W3dTwodpaE-0',
                     'new tab');
               },
-              icon: Icon(
-                Icons.description_rounded,
-                color: Colors.black,
-              )),
+            ),
+          ),
         ],
       ),
       body: Padding(
