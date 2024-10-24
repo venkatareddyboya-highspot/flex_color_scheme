@@ -1,5 +1,4 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:flex_color_scheme_example/example5_themes_playground/theme/theme_data_dark.dart';
 import 'package:flex_color_scheme_example/play_book/home/home_page.dart';
 import 'package:flex_color_scheme_example/play_book/themes/themes_controller.dart';
 import 'package:flutter/foundation.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../example5_themes_playground/theme/flex_theme_dark.dart';
 import '../shared/controllers/theme_controller.dart';
 import '../shared/services/theme_service.dart';
 import '../shared/services/theme_service_hive.dart';
@@ -77,9 +75,6 @@ class _PlaygroundAppState extends State<PlaygroundApp> {
               ThemeData.light(),
               themesController.currentTheme.value,
             ),
-            darkTheme: widget.controller.useFlexColorScheme
-                ? flexThemeDark(widget.controller)
-                : themeDataDark(widget.controller),
             // Use the dark/light theme based on controller setting.
             themeMode: ThemeMode.light,
             //initialBinding: HomeBinding(),

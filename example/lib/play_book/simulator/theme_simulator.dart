@@ -1,4 +1,6 @@
 import 'package:device_frame/device_frame.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flex_color_scheme_example/play_book/themes/themes_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -122,17 +124,26 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
                       child: SimulatorFrame(
                         device: device,
                         orientation: orientation,
-                        child: Material(
-                          child: GetBuilder<HomePageController>(builder: (_) {
-                            return Scaffold(
-                                body: SafeArea(
-                              child: Center(
-                                child: _.widgetConfigList[
-                                        _.currentSelectedWidget] ??
-                                    const SizedBox(),
+                        child: GetX<ThemesController>(
+                          builder: (themesController) {
+                            return MaterialApp(
+                              theme: addThemeExtenstions(
+                                ThemeData.light(),
+                                themesController.currentTheme.value,
                               ),
-                            ));
-                          }),
+                              home:
+                                  GetBuilder<HomePageController>(builder: (_) {
+                                return Scaffold(
+                                    body: SafeArea(
+                                  child: Center(
+                                    child: _.widgetConfigList[
+                                            _.currentSelectedWidget] ??
+                                        const SizedBox(),
+                                  ),
+                                ));
+                              }),
+                            );
+                          },
                         ),
                       )),
                 ),
