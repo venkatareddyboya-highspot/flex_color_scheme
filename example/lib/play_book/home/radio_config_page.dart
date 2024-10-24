@@ -30,7 +30,7 @@ class _RadioButtonConfigScreenState extends State<RadioButtonConfigScreen> {
           IconButton(
               onPressed: () {
                 html.window.open(
-                    'https://www.figma.com/design/VRc6wq3QQacuS6y3ku59Z4/Arctic---Polar-UI?node-id=350-9483&node-type=frame&t=E8XO53W3dTwodpaE-0',
+                    'https://www.figma.com/design/VRc6wq3QQacuS6y3ku59Z4/Arctic---Polar-UI?node-id=353-8136&t=u1D1MtCgRjEwDh0L-4',
                     'new tab');
               },
               icon: Icon(

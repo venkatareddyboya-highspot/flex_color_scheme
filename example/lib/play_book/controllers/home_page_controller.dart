@@ -1,6 +1,8 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flex_color_scheme_example/play_book/components/user_card_widget.dart';
 import 'package:flex_color_scheme_example/play_book/home/components_code_snippet_view.dart';
+import 'package:flex_color_scheme_example/play_book/story_widgets/button_story_widget.dart';
+import 'package:flex_color_scheme_example/play_book/story_widgets/radio_group_story_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,17 +35,8 @@ class HomePageController extends GetxController {
 
   final Map<Components, Widget> componentsList = {
     Components.Button:
-        ButtonWidget(buttonType: ButtonType.primary, label: 'Button'),
-    Components.Radio: RadioGroupInputWidget(
-      label: 'Some label',
-      optionsList: optionsList,
-      selectedOption: optionsList[0],
-      onChanged: (val) {},
-      isRequired: true,
-      isHorizontal: false,
-      isSegmented: false,
-      tooltipMessage: 'some tooltip message',
-    ),
+  ButtonStoryWidget(),
+    Components.Radio: RadioGroupStoryWidget(),
     Components.UserCard: UserCard()
   };
 

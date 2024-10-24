@@ -136,7 +136,7 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
                                 return Scaffold(
                                     body: SafeArea(
                                   child: Center(
-                                    child: _.widgetConfigList[
+                                    child: _.componentsList[
                                             _.currentSelectedWidget] ??
                                         const SizedBox(),
                                   ),
