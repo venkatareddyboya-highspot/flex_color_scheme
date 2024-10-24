@@ -134,7 +134,7 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
                         orientation: orientation,
                         child: Material(child: GetBuilder<HomePageController>(
                           builder: (_) {
-                            return Scaffold(body: SafeArea(child: Center(child: _.componentsList[_.currentSelectedWidget]??const SizedBox(),),));
+                            return Scaffold(body: SafeArea(child: Center(child: _.widgetConfigList[_.currentSelectedWidget]??const SizedBox(),),));
                           }
                         )))
                     ),
