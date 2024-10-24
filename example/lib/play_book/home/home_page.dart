@@ -2,6 +2,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flex_color_scheme_example/play_book/controllers/home_page_controller.dart';
 import 'package:flex_color_scheme_example/play_book/controllers/radio/radio_config_controller.dart';
 import 'package:flex_color_scheme_example/play_book/home/components_list_view.dart';
+import 'package:flex_color_scheme_example/play_book/simulator/theme_simulator.dart';
 import 'package:flex_color_scheme_example/play_book/themes/themes_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,7 +66,7 @@ class PlayBookHomePage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    // ThemeSimulator(),
+                    ThemeSimulator(),
                     Container(
                       height: 80,
                       child: GetBuilder<ThemesController>(

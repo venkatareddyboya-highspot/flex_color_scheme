@@ -1,10 +1,4 @@
 import 'package:device_frame/device_frame.dart';
-import 'package:flex_color_scheme_example/example5_themes_playground/theme/flex_theme_dark.dart';
-import 'package:flex_color_scheme_example/example5_themes_playground/theme/flex_theme_light.dart';
-import 'package:flex_color_scheme_example/example5_themes_playground/theme/theme_data_dark.dart';
-import 'package:flex_color_scheme_example/example5_themes_playground/theme/theme_data_light.dart';
-import 'package:flex_color_scheme_example/example5_themes_playground/widgets/panels/theme_simulator/app_example_components.dart';
-import 'package:flex_color_scheme_example/example5_themes_playground/widgets/panels/theme_simulator/app_example_material3/app_example_material3.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,12 +7,9 @@ import '../../../../shared/utils/app_scroll_behavior.dart';
 import '../../../../shared/widgets/universal/list_tile_reveal.dart';
 import '../controllers/home_page_controller.dart';
 
-
-
 /// An example that show what an app using the theme might look like
 class ThemeSimulator extends StatefulWidget {
   const ThemeSimulator({super.key});
-
 
   @override
   State<ThemeSimulator> createState() => _ThemeSimulatorState();
@@ -48,7 +39,7 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
     tabController.addListener(() {
       if (tabController.index != currentPage) {
         currentPage = tabController.index;
-       // widget.controller.setSimulatorAppIndex(currentPage);
+        // widget.controller.setSimulatorAppIndex(currentPage);
       }
     });
   }
@@ -79,7 +70,6 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-
             ListTileReveal(
               leading: IconButton(
                 icon: AnimatedRotation(
@@ -113,7 +103,7 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
                 onChanged: (int index) {
                   setState(() {
                     device = index;
-                   // widget.controller.setSimulatorDeviceIndex(device);
+                    // widget.controller.setSimulatorDeviceIndex(device);
                   });
                 },
               ),
@@ -128,19 +118,26 @@ class _ThemeSimulatorState extends State<ThemeSimulator>
                     maxHeight: MediaQuery.of(context).size.height * 0.7,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SimulatorFrame(
+                      padding: const EdgeInsets.all(16.0),
+                      child: SimulatorFrame(
                         device: device,
                         orientation: orientation,
-                        child: Material(child: GetBuilder<HomePageController>(
-                          builder: (_) {
-                            return Scaffold(body: SafeArea(child: Center(child: _.widgetConfigList[_.currentSelectedWidget]??const SizedBox(),),));
-                          }
-                        )))
-                    ),
-                  ),
+                        child: Material(
+                          child: GetBuilder<HomePageController>(builder: (_) {
+                            return Scaffold(
+                                body: SafeArea(
+                              child: Center(
+                                child: _.widgetConfigList[
+                                        _.currentSelectedWidget] ??
+                                    const SizedBox(),
+                              ),
+                            ));
+                          }),
+                        ),
+                      )),
                 ),
               ),
+            ),
           ]),
     );
   }
