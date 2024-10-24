@@ -76,3 +76,6 @@ export 'src/flex_theme_data_extensions.dart';
 /// A theme-mode 3-way switch widget that uses `FlexSchemeData` as colors to
 /// show scheme colors for light, dark and system mode, on each button.
 export 'src/flex_theme_mode_switch.dart';
+export 'src/polar_widgets/button_widget.dart';
+export 'src/polar_widgets/radio_widget.dart';
+export 'src/polar_widgets/themes.dart';

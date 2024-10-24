@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+import 'themes.dart';
+
 class RadioGroupOptionInfo extends Equatable {
   final String value;
   final String label;
@@ -172,7 +174,7 @@ class _NormalRadioTileWidget extends StatelessWidget {
                 color: isSelected
                     ? (isDisabled
                         ? const Color(0xFFF2F2F2)
-                        : const Color(0xFF17787C))
+                        : context.themeX.appColors.primary)
                     : Colors.white,
                 borderRadius: BorderRadius.circular(40),
                 border: isSelected
@@ -235,7 +237,9 @@ class _SegmentedRadioTileWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 7),
         decoration: BoxDecoration(
           color: isSelected
-              ? (isDisabled ? const Color(0xFFF2F2F2) : const Color(0xFF17787C))
+              ? (isDisabled
+                  ? const Color(0xFFF2F2F2)
+                  : context.themeX.appColors.primary)
               : Colors.white,
           borderRadius: BorderRadius.circular(6),
         ),

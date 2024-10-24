@@ -1,11 +1,8 @@
-
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flex_color_scheme_example/play_book/controllers/home_page_controller.dart';
 import 'package:flex_color_scheme_example/play_book/home/components_list_view.dart';
-import 'package:flex_color_scheme_example/play_book/simulator/theme_simulator.dart';
-import 'package:flex_color_scheme_example/shared/controllers/theme_controller.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flex_color_scheme_example/play_book/themes/themes_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../controllers/button/button_config_controller.dart';
@@ -14,19 +11,22 @@ import 'components_code_snippet_view.dart';
 class PlayBookHomePage extends StatelessWidget {
   const PlayBookHomePage({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-
     Get.put(HomePageController());
     Get.put(ButtonConfigController());
 
     return Scaffold(
-      appBar: AppBar(title: Text("Mobile Widgets Play Book", style: TextStyle(color: Colors.white),), backgroundColor: Colors.blueAccent,),
+      appBar: AppBar(
+        title: Text(
+          "Mobile Widgets Play Book",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blueAccent,
+      ),
       body: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-
           Flexible(
             flex: 1,
             child: Container(
@@ -39,7 +39,6 @@ class PlayBookHomePage extends StatelessWidget {
               child: ComponentsListView(),
             ),
           ),
-
           Flexible(
             flex: 2,
             child: Container(
@@ -52,7 +51,6 @@ class PlayBookHomePage extends StatelessWidget {
               child: ComponentsCodeSnippetView(),
             ),
           ),
-
           Flexible(
             flex: 3,
             child: Container(
@@ -65,19 +63,22 @@ class PlayBookHomePage extends StatelessWidget {
                 margin: EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    ThemeSimulator(),
+                    // ThemeSimulator(),
                     Container(
-                      height: 100,
-                      child: GetBuilder<HomePageController>(
+                      height: 80,
+                      child: GetBuilder<ThemesController>(
                         builder: (_) {
                           return ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: _.themes.length,
+                            itemCount: themes.length,
                             itemBuilder: (context, index) {
-                              return ThemeWidget(themeColors: _.themes[index], isSelected: _.currentTheme == _.themes[index],);
+                              return ThemeWidget(
+                                appColors: themes[index],
+                                isSelected: _.currentTheme == themes[index],
+                              );
                             },
                           );
-                        }
+                        },
                       ),
                     )
                   ],
@@ -85,63 +86,63 @@ class PlayBookHomePage extends StatelessWidget {
               ),
             ),
           ),
-
         ],
       ),
     );
   }
 }
 
-
 // Widget for each theme
 class ThemeWidget extends StatelessWidget {
-  final List<Color> themeColors;
+  final AppColors appColors;
   final bool isSelected;
 
-  const ThemeWidget({required this.themeColors, required this.isSelected});
+  const ThemeWidget({
+    super.key,
+    required this.appColors,
+    required this.isSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Get.find<HomePageController>().selectTheme(themeColors);
+      onTap: () {
+        Get.find<ThemesController>().updateTheme(appColors);
       },
       child: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          border: Border.all(color: isSelected ? Colors.black : Colors.transparent, )
-        ),
+            border: Border.all(
+          color: isSelected ? Colors.black : Colors.transparent,
+        )),
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
             // Show each color in the theme
             Row(
-              children: themeColors
+              children: [
+                appColors.primary,
+                appColors.primaryVariant,
+                appColors.secondary,
+                appColors.secondaryVariant,
+              ]
                   .map((color) => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                child: Container(
-                  width: 20,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    color: color,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ))
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: color,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ))
                   .toList(),
             ),
-            SizedBox(height: 8),
-            // Show the theme number (optional)
-            Text(
-              'Theme ${themeColors.length}',
-              style: TextStyle(fontSize: 14),
-            ),
+            const SizedBox(height: 8),
           ],
         ),
       ),
     );
   }
 }
-
-
-
